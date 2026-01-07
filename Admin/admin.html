@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Tab3a-W-Hdiyi — Admin</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="../Homepage/header.css">
+  <link rel="stylesheet" href="../Homepage/footer.css">
+  <link rel="stylesheet" href="../admin/admin.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="logo-title">
+      <img class="logo" src="../Pictures/Tab3a-w-Hdiyi-logo.jpg" alt="Tab3a W Hdiyi Logo"
+           onclick="window.location.href='../Homepage/homepage.html'" style="cursor:pointer;">
+    </div>
+    <div class="header-actions">
+      <div class="searchBox">
+        <input class="searchInput" type="text" placeholder="Search">
+        <button class="searchButton"><i class="fas fa-search"></i></button>
+      </div>
+      <div id="login-button" class="user-profile" onclick="window.location.href='../login/login.html'">
+        <div class="user-profile-inner">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="..."></path></svg>
+          <p>Log In</p>
+        </div>
+      </div>
+      <div id="logout-button" class="user-profile" style="display:none;"
+           onclick="window.location.href='../login/logout.php'">
+        <div class="user-profile-inner">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="..."></path></svg>
+          <p>Logout</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Layout wrapper -->
+  <div class="admin-layout">
+    <nav class="admin-nav">
+      <ul>
+        <li class="active" onclick="showSection('products')">
+          <i class="fas fa-box"></i> Products
+        </li>
+        <li onclick="showSection('orders')">
+          <i class="fas fa-shopping-cart"></i> Orders
+        </li>
+        <li onclick="showSection('users')">
+          <i class="fas fa-users"></i> Users
+        </li>
+        <!-- ✅ Added Profits Nav -->
+        <li onclick="showSection('profits')">
+          <i class="fas fa-chart-line"></i> Profits
+        </li>
+      </ul>
+    </nav>
+
+    <main>
+      <!-- Products Section -->
+      <div id="products" class="section">
+        <form class="admin-form" action="add_product.php" method="POST" enctype="multipart/form-data">
+          <!-- Product form fields -->
+          <label class="form-label">Product Name:</label>
+          <input class="form-input" type="text" name="PRODUCT_NAME" required><br>
+          <label class="form-label">Description:</label>
+          <textarea class="form-textarea" name="DESCRIPTION" required></textarea><br>
+          <label class="form-label">Product Image:</label>
+          <input class="form-input" type="file" name="IMAGE" accept="image/*" required><br>
+          <label class="form-label">Buy Price:</label>
+          <input class="form-input" type="number" step="0.01" name="BUY_PRICE" required><br>
+          <label class="form-label">Sell Price:</label>
+          <input class="form-input" type="number" step="0.01" name="SELL_PRICE" required><br>
+          <label class="form-label">Category:</label>
+          <select class="form-select" name="CATEGORY" required>
+            <option value="Clothing">Clothing</option>
+            <option value="Mugs">Mugs</option>
+            <option value="Toys">Toys</option>
+            <option value="Kitchen">Kitchen</option>
+            <option value="Accessories">Accessories</option>
+          </select><br>
+          <label class="form-label">Stock Quantity:</label>
+          <input class="form-input" type="number" name="STOCK_QUANTITY" required><br>
+          <label class="form-label">Is Customizable:</label>
+          <select class="form-select" name="IS_CUSTOMIZABLE">
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+          </select><br>
+          <button class="form-button" type="submit">Add Product</button>
+        </form>
+
+        <!-- Product Table -->
+        <table class="product-table">
+          <thead>
+            <tr>
+              <th>Product ID</th>
+              <th>Product Name</th>
+              <th>Description</th>
+              <th>Image</th>
+              <th>Buy Price</th>
+              <th>Sell Price</th>
+              <th>Category</th>
+              <th>Stock Quantity</th>
+              <th>Is Customizable</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="products-body">
+            <!-- Injected by list_products.php -->
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Orders Section -->
+<div id="orders" class="section" style="display:none;">
+  <h2>Orders</h2>
+
+  <!-- Dynamic Month Filter -->
+  <label for="monthFilter">Filter by Month:</label>
+  <select id="monthFilter" onchange="filterOrdersByMonth()">
+    <!-- Options injected dynamically by admin.js -->
+  </select>
+
+  <table class="order-table">
+    <thead>
+      <tr>
+        <th>Order ID</th>
+        <th>Total Amount</th>
+        <th>Status</th>
+        <th>Created At</th>
+        <th>Order Date</th>
+        <th>User ID</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody id="orders-body">
+      <!-- Injected by list_orders.php -->
+    </tbody>
+  </table>
+</div>
+
+      <!-- Users Section -->
+      <div id="users" class="section" style="display:none;">
+        <h2>Users</h2>
+        <table class="user-table">
+          <thead>
+            <tr>
+              <th>User ID</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Type</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="users-body">
+            <!-- Injected by list_users.php -->
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Profits Section -->
+<div id="profits" class="section" style="display:none;">
+  <h2>Order Profits</h2>
+
+  <!-- Dynamic Month-Year Filter -->
+  <label for="profitMonthFilter">Filter by Date:</label>
+  <select id="profitMonthFilter" onchange="filterProfitsByMonth()">
+    <!-- Options injected by profit_filter.php -->
+  </select>
+
+  <table class="profit-table">
+    <thead>
+      <tr>
+        <th>Order ID</th>
+        <th>Order Date</th>
+        <th>Status</th>
+        <th>Total Amount</th>
+        <th>Profit</th>
+      </tr>
+    </thead>
+    <tbody id="profits-body">
+      <!-- Injected by list_profits.php -->
+    </tbody>
+  </table>
+</div>
+    </main>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="social-icons">
+      <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://wa.me/1235235598" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    </div>
+    <p>&copy; 2025 Tab3a W Hdiyi. All rights reserved.</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="../admin/admin.js" defer></script>
+  <script src="../admin/profit.js" defer></script>
+</body>
+</html>

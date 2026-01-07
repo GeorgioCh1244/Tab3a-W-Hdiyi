@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Your Cart - Tab3a W Hdiyi</title>
+  <link rel="stylesheet" href="../Homepage/header.css">
+  <link rel="stylesheet" href="../Homepage/footer.css">
+  <link rel="stylesheet" href="../Homepage/cart.css">
+  <script src="../Homepage/cart.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="logo-title">
+      <img class="logo" src="../Pictures/Tab3a-w-Hdiyi-logo.jpg" alt="Logo"
+           onclick="window.location.href='../Homepage/homepage.html'" style="cursor:pointer;">
+    </div>
+    <div class="header-actions">
+      <div class="cart-icon" onclick="window.location.href='../checkout/checkout.html'">
+        <i class="fas fa-shopping-cart"></i>
+        <span id="cart-count">0</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="cart-container">
+    <h2>Your Shopping Cart</h2>
+    <form action="checkout.php" method="POST">
+      <table id="cart-table">
+        <thead>
+          <tr>
+            <th>Product</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Subtotal</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="cart-body">
+          <!-- Cart items injected here -->
+        </tbody>
+      </table>
+
+      <div class="cart-summary">
+  <p>Total Items: <span id="total-items">0</span></p>
+  <p>Subtotal: $<span id="subtotal-price">0.00</span></p>
+  <p>Delivery Fee: $<span id="delivery-fee">7.00</span></p>
+  <p><strong>Total Price: $<span id="total-price">7.00</span></strong></p>
+
+  <div class="cart-user-info">
+    <label for="location">Delivery Location:</label>
+    <input type="text" id="location" name="location" required placeholder="Enter your address">
+
+    <label for="phone">Phone Number:</label>
+    <input type="tel" id="phone" name="phone" required pattern="[0-9]{8,15}" placeholder="Enter your phone number">
+  </div>
+
+  <button type="submit">Proceed to Checkout</button>
+</div>
+    </form>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2025 Tab3a W Hdiyi. All rights reserved.</p>
+  </footer>
+</body>
+</html>

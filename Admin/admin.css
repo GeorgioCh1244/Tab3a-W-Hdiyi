@@ -1,0 +1,265 @@
+/* =============== Layout wrapper (nav + main) =============== */
+.admin-layout {
+  display: flex;                 /* sidebar + main side by side */
+  align-items: stretch;          /* equal column heights */
+  min-height: calc(100vh - 40px);/* extend until footer begins (footer margin-top: 40px) */
+  box-sizing: border-box;
+}
+
+/* =============== Sidebar nav (updated) =============== */
+.admin-nav {
+  width: 220px;                  /* sidebar width */
+  background-color: #353637;     /* sidebar background */
+  box-shadow: 2px 0 6px rgba(0,0,0,0.1);
+}
+
+.admin-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.admin-nav ul li {
+  display: block;
+  padding: 15px 20px;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+  transition: background-color 0.3s ease;
+}
+
+.admin-nav ul li i {
+  margin-right: 10px;
+}
+
+.admin-nav ul li:hover,
+.admin-nav ul li.active {
+  background-color: #000000;     /* hover/active state */
+}
+
+/* =============== Main content next to sidebar =============== */
+main {
+  flex: 1;                       /* take remaining horizontal space */
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* ===========================
+   Admin Form Styling
+   =========================== */
+form.admin-form {
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  max-width: 450px;
+  margin: 20px auto;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+form.admin-form .form-label {
+  display: block;
+  margin-top: 10px;
+  font-weight: 600;
+  color: #333;
+}
+
+form.admin-form .form-input,
+form.admin-form .form-textarea,
+form.admin-form .form-select {
+  width: 100%;
+  padding: 8px 10px;
+  margin-top: 4px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 13px;
+  background-color: #fdfdfd;
+  transition: border-color 0.2s ease;
+}
+
+form.admin-form .form-input:focus,
+form.admin-form .form-textarea:focus,
+form.admin-form .form-select:focus {
+  border-color: #0077cc;
+  outline: none;
+}
+
+form.admin-form .form-button {
+  margin-top: 15px;
+  padding: 10px 20px;
+  background-color: #0077cc;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+form.admin-form .form-button:hover {
+  background-color: #005fa3;
+}
+
+/* ===========================
+   Product Table Styling
+   =========================== */
+.product-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 30px auto;
+  font-family: 'Segoe UI', sans-serif;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.product-table th,
+.product-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.product-table th {
+  background-color: #f0f0f0;
+  font-weight: 600;
+  color: #333;
+}
+
+.product-table tbody tr:nth-child(even) {
+  background-color: #fafafa;
+}
+
+.product-table img {
+  max-width: 60px;
+  height: auto;
+  border-radius: 4px;
+}
+
+/* =============== Responsive tweaks =============== */
+@media (max-width: 768px) {
+  .admin-layout {
+    flex-direction: column;     /* stack sidebar above main */
+    min-height: auto;
+  }
+
+  .admin-nav {
+    width: 100%;
+    box-shadow: none;
+  }
+}
+/* ===========================
+   Orders Table Styling
+   =========================== */
+.order-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 30px auto;
+  font-family: 'Segoe UI', sans-serif;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.order-table th,
+.order-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.order-table th {
+  background-color: #f0f0f0;
+  font-weight: 600;
+  color: #333;
+}
+
+.order-table tbody tr:nth-child(even) {
+  background-color: #fafafa;
+}
+
+.user-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 30px auto;
+  font-family: 'Segoe UI', sans-serif;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.user-table th,
+.user-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.user-table th {
+  background-color: #f0f0f0;
+  font-weight: 600;
+  color: #333;
+}
+
+.user-table tbody tr:nth-child(even) {
+  background-color: #fafafa;
+}
+/* ===== Profits Nav Item ===== */
+.admin-nav li i.fa-chart-line {
+  color: #2c7be5; /* blue accent for profits icon */
+  margin-right: 8px;
+}
+
+.admin-nav li:hover i.fa-chart-line {
+  color: #1a5bb8; /* darker blue on hover */
+}
+
+.admin-nav li.active i.fa-chart-line {
+  color: #fff; /* white when active */
+}
+
+/* ===== Profits Section ===== */
+#profits h2 {
+  font-size: 22px;
+  margin-bottom: 15px;
+  color: #2c7be5;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* ===== Profits Table ===== */
+.profit-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px auto;
+  font-family: 'Segoe UI', sans-serif;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.profit-table th,
+.profit-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.profit-table th {
+  background-color: #f0f4f8;
+  font-weight: 600;
+  color: #333;
+}
+
+.profit-table tbody tr:nth-child(even) {
+  background-color: #fafafa;
+}
+
+.profit-table tbody tr:hover {
+  background-color: #eef6ff;
+}
+
+/* ===== Total Profits Row ===== */
+.profit-table tbody tr:last-child {
+  background-color: #e8f0fe;
+  font-weight: bold;
+  color: #1a5bb8;
+}

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Product Details</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="../Homepage/product-details.css">
+  <link rel="stylesheet" href="../Homepage/header.css">
+  <link rel="stylesheet" href="../Homepage/footer.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="logo-title">
+      <img class="logo" src="../Pictures/Tab3a-w-Hdiyi-logo.jpg" alt="Tab3a W Hdiyi Logo"
+           onclick="window.location.href='../Homepage/homepage.html'" style="cursor:pointer;">
+    </div>
+
+    <div class="header-actions">
+      <div class="searchBox">
+        <input class="searchInput" type="text" placeholder="Search">
+        <button class="searchButton"><i class="fas fa-search"></i></button>
+      </div>
+
+      <div id="login-button" class="user-profile" onclick="window.location.href='../login/login.html'">
+        <div class="user-profile-inner">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="..."></path></svg>
+          <p>Log In</p>
+        </div>
+      </div>
+
+      <div id="logout-button" class="user-profile" style="display:none;"
+           onclick="window.location.href='../login/logout.php'">
+        <div class="user-profile-inner">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="..."></path></svg>
+          <p>Logout</p>
+        </div>
+      </div>
+
+      <!-- Cart Icon -->
+      <div class="cart-icon" onclick="window.location.href='../Homepage/cart.html'">
+        <i class="fas fa-shopping-cart"></i>
+        <span id="cart-count">0</span>
+      </div>
+
+      <script>
+        document.addEventListener("DOMContentLoaded", function() {
+          const loginBtn = document.getElementById("login-button");
+          const logoutBtn = document.getElementById("logout-button");
+          const isLoggedIn = localStorage.getItem("isLoggedIn");
+          loginBtn.style.display = isLoggedIn === "true" ? "none" : "block";
+          logoutBtn.style.display = isLoggedIn === "true" ? "block" : "none";
+        });
+      </script>
+    </div>
+  </header>
+
+  <!-- Main Product Details -->
+  <main>
+    <h1 id="product-name"></h1>
+    <div class="product-container">
+      <img id="product-image" src="" alt="Product Image">
+      <div>
+        <h2 id="product-price"></h2>
+        <p id="product-description"></p>
+      </div>
+    </div>
+
+    <div class="button-placement">
+      <!-- Quantity Selector -->
+      <div class="quantity-selector">
+        <button class="qty-btn" onclick="changeQty(-1)">−</button>
+        <input id="qty-input" class="qty-input" type="number" value="1" min="1">
+        <button class="qty-btn" onclick="changeQty(1)">+</button>
+      </div>
+
+      <!-- Add to Cart -->
+      <button class="buy-button" onclick="addToCart()">
+        <span>Add to cart</span>
+      </button>
+
+      <!-- Customize Button (hidden by default) -->
+      <button id="customize-button" class="customize-button" style="display:none;">
+        <span>Customize</span>
+      </button>
+    </div>
+
+    <!-- Reviews Section -->
+    <section id="reviews">
+      <h2>Customer Reviews</h2>
+
+      <!-- Average Rating -->
+      <div id="average-rating">
+        <!-- Injected dynamically -->
+      </div>
+
+      <!-- Reviews List -->
+      <div id="reviews-list">
+        <!-- Reviews will be injected here -->
+      </div>
+
+      <!-- Add Review Form -->
+      <div id="add-review">
+        <h3>Write a Review</h3>
+        <form onsubmit="submitReview(event)">
+          <label for="rating">Rating:</label>
+          <select id="rating" required>
+            <option value="">Select</option>
+            <option value="1">⭐</option>
+            <option value="2">⭐⭐</option>
+            <option value="3">⭐⭐⭐</option>
+            <option value="4">⭐⭐⭐⭐</option>
+            <option value="5">⭐⭐⭐⭐⭐</option>
+          </select><br>
+
+          <label for="review-text">Your Review:</label><br>
+          <textarea id="review-text" rows="4" required></textarea><br>
+
+          <button type="submit">Submit Review</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="social-icons">
+      <a href="https://www.facebook.com/share/1F9DVRSbCY/?mibextid=wwXIfr" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.instagram.com/tab3a.w.hdiye?igsh=dmUwY2l2bjNpcmdv" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="https://wa.me/1235235598" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+    </div>
+    <p>&copy; 2025 Tab3a W Hdiyi. All rights reserved.</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="../Homepage/product-details.js" defer></script>
+  <script src="../Homepage/cart.js"></script>
+</body>
+</html>

@@ -1,0 +1,171 @@
+/* Reset default margins/padding */
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+/* Header container */
+header.site-header {
+  background-color: #6B1E3A;
+  color: white;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap; /* allows stacking on small screens */
+  width: 100%;          /* full width */
+  box-sizing: border-box; /* include padding in width */
+}
+
+/* Logo + Title grouping */
+.logo-title {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin: 0; /* remove default h1 margin */
+}
+
+/* Actions (search + login) */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/* Logo styling */
+.logo {
+  height: 100px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  border-radius: 50px;
+}
+
+.logo:hover {
+  transform: scale(1.1) rotate(-2deg);
+  box-shadow: 0 0 15px #F7C1D9;
+}
+
+/* Search box */
+.searchBox {
+  background: #2f3640;
+  height: 40px;
+  border-radius: 40px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.searchButton {
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #2f3640;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.4s;
+}
+
+.searchInput {
+  border: none;
+  background: none;
+  outline: none;
+  padding: 0;
+  color: white;
+  font-size: 16px;
+  transition: 0.4s;
+  line-height: 40px;
+  width: 0px;
+}
+
+.searchBox:hover > .searchInput {
+  width: 150px;
+  padding: 0 6px;
+}
+
+.searchBox:hover > .searchButton {
+  background: white;
+  color: #2f3640;
+}
+
+/* User profile button */
+.user-profile {
+  width: 110px;
+  height: 45px;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  background: linear-gradient(to bottom right, #2e8eff 0%, rgba(46, 142, 255, 0) 30%);
+  background-color: rgba(46, 142, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.user-profile:hover,
+.user-profile:focus {
+  background-color: rgba(46, 142, 255, 0.7);
+  box-shadow: 0 0 10px rgba(46, 142, 255, 0.5);
+  outline: none;
+}
+
+.user-profile-inner {
+  width: 106px;
+  height: 41px;
+  border-radius: 13px;
+  background-color: #1a1a1a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: #fff;
+  font-size: 14px;
+}
+
+.user-profile-inner svg {
+  width: 27px;
+  height: 27px;
+  fill: #fff;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  header.site-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .logo {
+    height: 70px;
+  }
+
+  .title {
+    font-size: 1.5rem;
+  }
+}
+
+.cart-icon {
+  position: relative;
+  cursor: pointer;
+  margin-left: 20px;
+  font-size: 20px;
+  color: #333;
+}
+
+.cart-icon #cart-count {
+  position: absolute;
+  top: -8px;
+  right: -10px;
+  background: red;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 50%;
+  padding: 2px 6px;
+}

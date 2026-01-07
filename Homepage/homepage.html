@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tab3a-W-Hdiyi</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="../Homepage/homepage.css">
+  <link rel="stylesheet" href="../Homepage/product-details.css">
+  <link rel="stylesheet" href="../Homepage/footer.css">
+  <link rel="stylesheet" href="../Homepage/header.css">
+  <script src="../Homepage/homepage.js" defer></script>
+  <script src="../Homepage/category.js" defer></script>
+  <!-- Global cart script -->
+  <script src="../Homepage/cart.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="logo-title">
+      <img class="logo" src="../Pictures/Tab3a-w-Hdiyi-logo.jpg" alt="Tab3a W Hdiyi Logo"
+           onclick="window.location.href='../Homepage/homepage.html'" style="cursor:pointer;">
+    </div>
+
+    <div class="header-actions">
+      <div class="searchBox">
+        <input class="searchInput" type="text" placeholder="Search">
+        <button class="searchButton"><i class="fas fa-search"></i></button>
+      </div>
+
+      <div id="login-button" class="user-profile" onclick="window.location.href='../login/login.html'">
+        <div class="user-profile-inner">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="..."></path></svg>
+          <p>Log In</p>
+        </div>
+      </div>
+
+      <div id="logout-button" class="user-profile" style="display:none;"
+           onclick="window.location.href='../login/logout.php'">
+        <div class="user-profile-inner">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="..."></path></svg>
+          <p>Logout</p>
+        </div>
+      </div>
+
+      <!-- Cart Icon -->
+      <div class="cart-icon" onclick="window.location.href='../Homepage/cart.html'">
+        <i class="fas fa-shopping-cart"></i>
+        <span id="cart-count">0</span>
+      </div>
+
+      <script>
+        document.addEventListener("DOMContentLoaded", function() {
+          const loginBtn = document.getElementById("login-button");
+          const logoutBtn = document.getElementById("logout-button");
+          const isLoggedIn = localStorage.getItem("isLoggedIn");
+          loginBtn.style.display = isLoggedIn === "true" ? "none" : "block";
+          logoutBtn.style.display = isLoggedIn === "true" ? "block" : "none";
+        });
+      </script>
+    </div>
+  </header>
+
+  <div class="container">
+    <nav>
+      <h3>Categories</h3>
+      <ul>
+        <li data-category="Clothing">Clothing</li>
+        <li data-category="Mugs">Mugs</li>
+        <li data-category="Toys">Toys</li>
+        <li data-category="Kitchen">Kitchen</li>
+        <li data-category="Accessories">Accessories</li>
+        <li data-category="All">All Products</li>
+      </ul>
+      <button class="contact-btn" onclick="window.location.href='../Form/form.html'">Contact us</button>
+    </nav>
+
+    <main>
+      <!-- Product cards will be injected here dynamically by homepage.js -->
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    <div class="social-icons">
+      <a href="https://www.facebook.com/share/1F9DVRSbCY/?mibextid=wwXIfr" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.instagram.com/tab3a.w.hdiye?igsh=dmUwY2l2bjNpcmdv" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="https://wa.me/1235235598" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+    </div>
+    <p>&copy; 2025 Tab3a W Hdiyi. All rights reserved.</p>
+  </footer>
+</body>
+</html>

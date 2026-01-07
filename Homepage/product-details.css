@@ -1,0 +1,282 @@
+/* Product title */
+h1#product-name {
+    text-align: center;
+    margin: 30px 0 20px;
+    font-size: 32px;
+    color: #6B1E3A;
+}
+
+/* Product container */
+.product-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 40px;
+    background-color: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    max-width: 1000px;
+    margin: -50px auto 50px;
+}
+
+.product-container img {
+    max-width: 400px;
+    width: 100%;
+    border-radius: 15px;
+    object-fit: contain;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.product-container div {
+    max-width: 400px;
+}
+
+.product-container h2#product-price {
+    font-size: 28px;
+    color: #e63946;
+    margin: 10px 0;
+}
+
+.product-container p#product-description {
+    font-size: 18px;
+    color: #333;
+    line-height: 1.5;
+}
+
+/* Responsive for mobile */
+@media (max-width: 768px) {
+    .product-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .product-container div {
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .product-container img {
+        max-width: 80%;
+    }
+}
+
+/* Button placement: center and allow quantity + button side-by-side */
+.button-placement {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+/* Buy button (keeps existing look but ensures alignment) */
+.buy-button {
+
+    background-color: #5b263b;
+    border: 0.08em solid #fff;
+    border-radius: 0.3em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform .06s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+/* Hover states */
+.buy-button:hover {
+    background-color: #8c2a4d;
+    transform: translateY(-1px);
+}
+
+.buy-button span {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    bottom: 0.4em;
+    width: 9.25em;
+    height: 2.5em;
+    background-color: #6B1E3A;
+    border-radius: 0.2em;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #fff;
+    border: 0.08em solid #fff;
+    box-shadow: 0 0.4em 0.1em 0.019em #fff;
+    transition: all 0.3s ease;
+}
+
+.buy-button span:hover {
+    transform: translateY(0.4em);
+    box-shadow: none;
+}
+
+
+/* Quantity wrapper */
+.quantity-selector {
+    display: flex;
+    align-items: center;
+    border: 2px solid #6B1E3A;
+    border-radius: 10px;
+    overflow: hidden;
+    height: 48px;
+    background: #ffffff;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+/* Buttons */
+.quantity-selector .qty-btn {
+    width: 45px;
+    height: 100%;
+    border: none;
+    background: #f2e6eb;
+    color: #6B1E3A;
+    font-size: 22px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.quantity-selector .qty-btn:hover {
+    background: #e7d0db;
+}
+
+/* Input */
+.quantity-selector .qty-input {
+    width: 65px;
+    height: 100%;
+    border: none;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: #6B1E3A;
+    outline: none;
+    background: transparent;
+}
+
+/* Customize Button Style */
+.customize-button {
+  margin-left: 12px;              /* space next to Add to Cart */
+  padding: 12px 24px;             /* comfortable size */
+  background: linear-gradient(135deg, #634e57, #ff758c); /* vibrant gradient */
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  transition: all 0.3s ease;
+}
+
+.customize-button:hover {
+  background: linear-gradient(135deg, #763540, #ff7eb3); /* reverse gradient */
+  transform: translateY(-2px);   /* subtle lift on hover */
+  box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+}
+
+.customize-button:active {
+  transform: translateY(0);      /* press effect */
+  box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+}
+
+/* Reviews Section */
+#reviews {
+  margin-top: 40px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-top: 2px solid #ddd;
+  border-radius: 8px;
+}
+
+#reviews h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+#average-rating {
+  font-size: 18px;
+  margin-bottom: 20px;
+  color: #444;
+}
+
+/* Review Item */
+.review-item {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-left: 4px solid #6B1E3A;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 6px;
+}
+
+.review-item p {
+  margin: 5px 0;
+  font-size: 16px;
+  color: #333;
+}
+
+.review-item small {
+  color: #777;
+  font-size: 13px;
+}
+
+/* Add Review Form */
+#add-review {
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid #ccc;
+}
+
+#add-review h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+#add-review label {
+  font-weight: bold;
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  color: #444;
+}
+
+#add-review select,
+#add-review textarea {
+  width: 100%;
+  padding: 8px;
+  font-size: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+#add-review button {
+  margin-top: 15px;
+  padding: 10px 20px;
+  background-color: #6B1E3A;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#add-review button:hover {
+  background-color: #6B1E3A;
+}
+
+
+
+
+
+
+
+
+

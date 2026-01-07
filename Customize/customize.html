@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Customize Product</title>
+  <link rel="stylesheet" href="customize.css">
+</head>
+<body>
+  <div id="editor">
+    <div id="title-bar">
+      <h2>Customize your product</h2>
+      <div class="action-bar">
+        <button id="downloadBtn" class="action primary">Save mockup</button>
+        <button id="resetBtn" class="action">Reset</button>
+      </div>
+    </div>
+
+    <div id="toolbar">
+      <div class="tool">
+        <label>Product</label>
+        <div class="row">
+          <button id="fitCanvasBtn" class="action">Fit canvas</button>
+          <span id="hint">Drag, resize, rotate overlays on the canvas</span>
+        </div>
+      </div>
+
+      <div class="tool">
+        <label>Add overlays</label>
+        <div class="row">
+          <input type="file" id="addImageInput" accept="image/*">
+        </div>
+        <div class="row" style="margin-top:6px;">
+          <input type="text" id="addTextInput" placeholder="Add text…">
+          <select id="fontSelect">
+            <option>Arial</option>
+            <option>Roboto</option>
+            <option>Georgia</option>
+            <option>Courier New</option>
+            <option>Impact</option>
+          </select>
+          <button id="addTextBtn" class="action">Add text</button>
+        </div>
+      </div>
+
+      <div class="tool">
+        <label>Selected overlay</label>
+        <div class="row">
+          <label class="label">Opacity</label>
+          <input type="range" id="opacityRange" min="0" max="1" step="0.01" value="1">
+        </div>
+        <div class="row" style="margin-top:6px;">
+          <label class="label">Blend</label>
+          <select id="blendSelect">
+            <option value="source-over">Normal</option>
+            <option value="multiply">Multiply</option>
+            <option value="screen">Screen</option>
+            <option value="overlay">Overlay</option>
+            <option value="darken">Darken</option>
+            <option value="lighten">Lighten</option>
+            <option value="difference">Difference</option>
+            <option value="exclusion">Exclusion</option>
+          </select>
+        </div>
+        <div class="row" style="margin-top:6px;">
+          <label class="label">Rotation</label>
+          <input type="range" id="rotationRange" min="-180" max="180" step="1" value="0">
+        </div>
+        <div class="row" style="margin-top:6px;">
+          <label class="label">Scale</label>
+          <input type="range" id="scaleRange" min="0.1" max="4" step="0.01" value="1">
+        </div>
+        <div class="row" style="margin-top:6px;">
+          <button id="deleteLayerBtn" class="action">Delete</button>
+          <button id="duplicateLayerBtn" class="action">Duplicate</button>
+        </div>
+      </div>
+
+      <div class="tool">
+        <label>Background remover (for images)</label>
+        <div class="row">
+          <button id="bgSampleBtn" class="action">Sample background (click overlay)</button>
+          <button id="bgRemoveBtn" class="action">Remove background</button>
+        </div>
+        <div class="row" style="margin-top:6px;">
+          <label class="label">Tolerance</label>
+          <input type="range" id="bgTolerance" min="0" max="100" step="1" value="25">
+        </div>
+        <div class="row" style="margin-top:6px;">
+          <button id="bgResetBtn" class="action">Reset overlay image</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="canvas-wrap">
+      <canvas id="mockupCanvas" width="900" height="900"></canvas>
+    </div>
+  </div>
+
+  <div id="sidebar">
+    <h3>Layers</h3>
+    <div id="layers"></div>
+
+    <h3>Shortcuts</h3>
+    <div class="row shortcuts">
+      <span>→ Arrow keys: nudge selected overlay</span>
+      <span>→ Delete/Backspace: remove selected overlay</span>
+      <span>→ Shift + drag corner: keep aspect ratio</span>
+      <span>→ Click a corner to resize; top handle to rotate</span>
+    </div>
+  </div>
+
+  <script src="customize.js"></script>
+</body>
+</html>
